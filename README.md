@@ -13,8 +13,7 @@ This repo contains focused queries for sales, customers, shipping, discounts, pr
 - [Prerequisites](#prerequisites)
 - [How to run the queries](#how-to-run-the-queries)
 - [Load dataset (quick tips)](#load-dataset-quick-tips)
-
-- [Contributing](#contributing)
+- [Output](#output)
 
 
 ---
