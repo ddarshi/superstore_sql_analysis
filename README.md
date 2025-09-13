@@ -1,6 +1,6 @@
-# superstore_sql_analysis
-Uncovering Sales &amp; Profitability Trends: SQL Analysis of Superstore Data using SQL SERVER
 # Superstore SQL Analyses
+
+Uncovering Sales & Profitability Trends: SQL Analysis of Superstore Data using SQL Server  
 
 A collection of SQL scripts to analyze the *Sample Superstore* dataset.  
 This repo contains focused queries for sales, customers, shipping, discounts, profitability, and top-performing products & categories.
@@ -8,13 +8,30 @@ This repo contains focused queries for sales, customers, shipping, discounts, pr
 ---
 
 ## Table of contents
+- [Skills Demonstrated](#skills-demonstrated)
+- [Dataset](#dataset)
 - [Project structure](#project-structure)
 - [Files & purpose](#files--purpose)
 - [Prerequisites](#prerequisites)
 - [How to run the queries](#how-to-run-the-queries)
 - [Load dataset (quick tips)](#load-dataset-quick-tips)
-- [Output](#output)
+- [Insights & Findings](#insights--findings)
 
+---
+
+## Skills Demonstrated
+- **SQL Basics**: `SELECT`, `WHERE`, `ORDER BY`, `LIMIT/TOP`
+- **Aggregation**: `SUM`, `COUNT`, `AVG`, `GROUP BY`, `HAVING`
+- **Date Functions**: `DATE_FORMAT` (MySQL), `FORMAT` (SQL Server), `DATEDIFF`
+- **Joins & CTEs**: Combining tables, customer retention analysis
+- **Business Analysis**: Profitability, segmentation, trend analysis
+
+---
+
+## Dataset
+- **Source**: Kaggle – [Sample Superstore](https://www.kaggle.com/datasets/rohitsahoo/sales-forecasting)
+- **Size**: ~10,000 records  
+- **Features**: Orders, Sales, Profit, Discounts, Customers, Shipping, Regions, Categories
 
 ---
 
@@ -23,18 +40,12 @@ This repo contains focused queries for sales, customers, shipping, discounts, pr
 ---
 
 ## Files & purpose
-- `sql/Sales analysis.sql`  
-  Contains queries for overall sales trends, monthly/yearly aggregates, top regions and segments.
-- `sql/Customer analysis.sql`  
-  Customer segmentation, repeat customers, order counts, basic cohort queries.
-- `sql/Shipping analysis.sql`  
-  Shipping mode analysis, average shipping time.
-- `sql/Discount analysis.sql`  
-  How discounts affect sales and margin, discount buckets.
-- `sql/Profitability analysis.sql`  
-  Profit margins by category/segment, loss-making orders.
-- `sql/Top performing product and category by sales and profit.sql`  
-  Top SKUs, categories and their contribution to revenue & profit.
+- `sql/Sales analysis.sql` → Overall sales trends, monthly/yearly aggregates, top regions and segments.  
+- `sql/Customer analysis.sql` → Customer segmentation, repeat customers, order counts, basic cohort queries.  
+- `sql/Shipping analysis.sql` → Shipping mode analysis, average shipping time.  
+- `sql/Discount analysis.sql` → How discounts affect sales and margin, discount buckets.  
+- `sql/Profitability analysis.sql` → Profit margins by category/segment, loss-making orders.  
+- `sql/Top performing product and category by sales and profit.sql` → Top SKUs, categories and their contribution to revenue & profit.  
 
 ---
 
@@ -54,16 +65,20 @@ This repo contains focused queries for sales, customers, shipping, discounts, pr
 ---
 
 ## Load dataset (quick tips)
-- **MySQL Workbench**: Server → Data Import or use *Table Data Import Wizard* to import CSV into a new table.
-- **SQLite**: Use DB Browser for SQLite → Import CSV to a new table.
-- **DBeaver**: Right-click connection → Tools → Import CSV.
-- **Python (pandas)** to load CSV into SQL:
-```python
-import pandas as pd
-from sqlalchemy import create_engine
+- **MySQL Workbench**: Server → Data Import or use *Table Data Import Wizard* to import CSV into a new table.  
+- **SQLite**: Use DB Browser for SQLite → Import CSV to a new table.  
+- **DBeaver**: Right-click connection → Tools → Import CSV.  
+- **Python (pandas)** to load CSV into SQL.  
 
-df = pd.read_csv("SampleSuperstore.csv")
-engine = create_engine("mysql+pymysql://user:pass@localhost/superstore")
-df.to_sql("orders", engine, if_exists="replace", index=False)
+---
 
+## Insights & Findings
+- [Customer Analysis](sql/Customer%20analysis.sql): Most customers purchase repeatedly, but ~20% are one-time buyers → churn risk.  
+- [Discount Analysis](sql/Discount%20analysis.sql): Higher discounts directly reduce profit margins → need discount strategy optimization.  
+- [Profitability Analysis](sql/Profitability%20analysis.sql): Technology category contributes the highest profit despite fewer orders.  
+- [Sales Analysis](sql/Sales%20analysis.sql): West region drives maximum sales; Central shows inconsistent profitability.  
+- [Shipping Analysis](sql/Shipping%20analysis.sql): Same-Day shipping incurs higher costs with low incremental sales gain.  
+- [Top Products](sql/Top%20performing%20product%20and%20category%20by%20sales%20and%20profit.sql): Chairs and Phones dominate sales; Copiers lead in profit margins.  
+
+---
 
